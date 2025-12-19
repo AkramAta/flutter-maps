@@ -4,6 +4,7 @@ import 'package:flutter_maps/constants/my_colors.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
+  final GlobalKey <FormState> _phoneFormKey = GlobalKey();
 
   late String phoneNumber ;
 
@@ -142,7 +143,7 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: Colors.white,
 
         body: Form(
-          key: UniqueKey(),
+          key: _phoneFormKey,
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 32, vertical: 88),
             child: Column(
