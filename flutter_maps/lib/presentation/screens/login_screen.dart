@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_maps/constants/my_colors.dart';
+import 'package:flutter_maps/constants/strings.dart';
+import 'package:flutter_maps/presentation/screens/otp_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -10,6 +12,8 @@ class LoginScreen extends StatelessWidget {
 
   Widget _buildIntroTexts() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      
       children: [
         Text(
           "What is your phone number ?",
@@ -19,9 +23,9 @@ class LoginScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 20),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 14), 
+          margin: EdgeInsets.symmetric(horizontal: 2), 
           child: Text("Please enter your phone number to verify your account.", 
           style: TextStyle(color: Colors.black, fontSize: 18),),
           ),
@@ -115,12 +119,12 @@ class LoginScreen extends StatelessWidget {
 
 
 
-  Widget _buildNextButton(){
+  Widget _buildNextButton(BuildContext context){
     return Align(
       alignment: Alignment.centerRight,
       child: ElevatedButton(
         onPressed: () {
-          
+          Navigator.pushNamed(context, otpScreen);
         },
        child: Text('Next', style: TextStyle(color: Colors.white , fontSize:  16)
        ,),
@@ -151,8 +155,8 @@ class LoginScreen extends StatelessWidget {
                 _buildIntroTexts(),
                 SizedBox(height: 100,),
                 _buildPhoneFormField(),
-                SizedBox(height: 55,),
-                _buildNextButton(),
+                SizedBox(height: 65,),
+                _buildNextButton(context),
                 ]),
           ),
         ),
